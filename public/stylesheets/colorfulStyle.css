@@ -1,0 +1,27 @@
+/**Main**/
+body{
+    background-color: deeppink;
+}
+button{
+    background-color: #00ff36;
+}
+button + .activeButton{
+    background-color: #048000;
+}
+
+
+/**Home**/
+#homeEdit{
+    background-color: blue;
+    color: white;
+}
+
+
+
+
+
+/** EditNode **/
+#title, #description{
+    background-color: blue;
+    color: white;
+}

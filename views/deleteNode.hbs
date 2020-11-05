@@ -1,0 +1,18 @@
+<form id="deleteNode" action="/deletedNode" method="post" class="customGrid">
+    <input type="hidden" id="nodeId" name="nodeId" value="{{nodeInformation.id}}">
+    <span id="deleteNodeMassage">Do you want to delete the note?</span>
+    <div id="deleteNodeHeader">
+        <div>{{{stars}}}</div>
+        <div>{{nodeInformation.title}}</div>
+    </div>
+    <div id="deleteDescriptionBox">{{nodeInformation.description}}</div>
+    <button id="btn_yes" name="btn" value="btn_yes" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-6 ">yes</button>
+    <button id="btn_no" name="btn" value="btn_no" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-6" >no</button>
+</form>
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+/***Layout**/
+body > div{
+    padding-left: 10%;
+    width: 80%;
+}
+.madeBy {
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+}
+button{
+    height: 40px;
+    border-radius: 8px;
+    background-color: lightgray;
+}
+button.activeButton{
+    background-color:gray;
+}

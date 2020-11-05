@@ -1,0 +1,37 @@
+@media (max-width: 48em) {
+    .bigButton{
+        grid-column: span 12;
+    }
+    .smallButton,  #btn_changeStyle, #btn_refresh{
+        grid-column: span 6;
+    }
+    .btn_editNode, .nodeText, .btn_changeFinished{
+        grid-column: span 12;
+    }
+    .finishedTitle{
+        grid-column: span 3;
+    }
+    .starsOnHome{
+        grid-column: span 3;
+    }
+    .titlesOnHome{
+        grid-column: span 12;
+    }
+}
+@media (min-width:48em) and (max-width: 62em) {
+    .bigButton{
+        grid-column: span 3;
+    }
+    .smallButton{
+        grid-column: span 2;
+    }
+    #btn_changeStyle{
+        grid-column: 9/span 2;
+    }
+    #btn_refresh{
+        grid-column: 7/span 2;
+    }
+
+}
+@media (min-width:62em) {
+}

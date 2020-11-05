@@ -1,0 +1,23 @@
+@media (max-width: 48em) {
+    body{
+        /*background-color: yellow;*/
+    }
+    body > div{
+        width: 100%;
+        padding-left: 0%;
+    }
+}
+@media (min-width:48em) and (max-width: 62em) {
+    body{
+        /*background-color: blue;*/
+    }
+    body > div{
+        width: 100%;
+        padding-left: 0%;
+    }
+}
+@media (min-width:62em) {
+    body{
+        /*background-color: red;*/
+    }
+}

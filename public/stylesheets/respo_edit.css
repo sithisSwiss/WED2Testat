@@ -1,0 +1,26 @@
+@media (max-width: 48em) {
+    #editNode > label, #editNode > div {
+        grid-column: span 12;
+    }
+    .customGrid.checkGrid > div{
+        grid-column: span 12;
+        font-size: 3em;
+    }
+    textarea{
+        height: 300px;
+    }
+}
+@media (min-width:48em) and (max-width: 62em) {
+    .customGrid.checkGrid > div{
+        grid-column: span 12;
+        font-size: 3em;
+    }
+    #editNode > div {
+        grid-column: span 12;
+    }
+    textarea{
+        height: 300px;
+    }
+}
+@media (min-width:62em) {
+}

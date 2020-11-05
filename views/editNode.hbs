@@ -1,0 +1,56 @@
+<form id="editNode" action="/saveNode" method="post" class="customGrid">
+    <input type="hidden" id="nodeId" name="nodeId" value="{{#if (if_id nodeInformation.id)}}{{nodeInformation.id}}{{else}}newID{{/if}}">
+
+    <label for="title">Title: </label>
+    <div>
+        <input type="text" id="title" name="title" required minlength="3"  value="{{nodeInformation.title}}">
+    </div>
+
+    <label for="description">Description: </label>
+    <div>
+        <textarea id="description" rows="5" name="description" required minlength="5">{{nodeInformation.description}}</textarea>
+    </div>
+
+    <label for="importance">Importance: </label>
+    <div class="customGrid checkGrid">
+        <div>
+            <input type="radio" class="form-check-input" name="importance" id="importance1" value="1" required {{#if (if_equal nodeInformation.importance 1) }}checked{{/if}}>
+            <label class="form-check-label" for="importance1">{{{stars.one}}}</label>
+        </div>
+        <div>
+            <input  type="radio"class="form-check-input" name="importance" id="importance2" value="2" {{#if (if_equal nodeInformation.importance 2) }}checked{{/if}}>
+            <label class="form-check-label" for="importance2">{{{stars.two}}}</label>
+        </div>
+        <div>
+            <input type="radio" class="form-check-input" name="importance" id="importance3" value="3" {{#if (if_equal nodeInformation.importance 3) }}checked{{/if}}>
+            <label class="form-check-label" for="importance3">{{{stars.three}}}</label>
+        </div>
+        <div>
+            <input type="radio" class="form-check-input" name="importance" id="importance4" value="4" {{#if (if_equal nodeInformation.importance 4) }}checked{{/if}}>
+            <label class="form-check-label" for="importance4">{{{stars.four}}}</label>
+        </div>
+        <div>
+            <input type="radio" class="form-check-input" name="importance" id="importance5" value="5" {{#if (if_equal nodeInformation.importance 5) }}checked{{/if}}>
+            <label class="form-check-label" for="importance5">{{{stars.five}}}</label>
+        </div>
+    </div>
+    {{#unless createANewNode}}
+        <label for="finishedState">Finished: </label>
+        <div>
+            <input type="checkbox" id="finishedState" name="finishedState" {{#if nodeInformation.isFinished}}checked{{/if}}/>
+        </div>
+    {{/unless}}
+    <div id="editNodeButtons" class="customGrid">
+        {{#unless createANewNode}}<button id="btn_overrideNode" name="btn" value="btn_overrideNode" type="submit">Override</button>{{/unless}}
+        <button id="btn_saveNew" name="btn" value="btn_saveNew" type="submit" class="{{#unless createANewNode}}ifOldNode{{else}}ifNewNode{{/unless}}">Save {{#unless createANewNode}}as New{{/unless}}</button>
+{{#unless createANewNode}}<button id="btn_deleteNode" name="btn" value="btn_deleteNode" type="submit" formnovalidate>delete this node</button>{{/unless}}
+        <button id="btn_saveCancel" name="btn" value="btn_saveCancel" type="submit" formnovalidate>cancel</button>
+    </div>
+</form>
+
+
+
+
+
+
+

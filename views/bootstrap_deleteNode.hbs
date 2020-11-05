@@ -1,0 +1,22 @@
+<form action="/deletedNode" method="post" id="deleteNode">
+  <input type="hidden" id="nodeId" name="nodeId" value="{{nodeInformation.id}}">
+    <span id="deleteNodeMassage">Do you want to delete the note?</span>
+    <div class="row deleteNodeHeader">
+        <div class="col-md-3">{{{stars}}}</div>
+        <div class="col-md-9">{{nodeInformation.title}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 deleteDescriptionBox">{{nodeInformation.description}}</div>
+    </div>
+    <div class="row">
+        <button id="btn_yes" name="btn" value="btn_yes" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-6 ">yes</button>
+        <button id="btn_no" name="btn" value="btn_no" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-6" >no</button>
+    </div>
+</form>
+
+
+
+
+
+
+

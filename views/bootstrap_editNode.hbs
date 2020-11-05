@@ -1,0 +1,53 @@
+<form action="/saveNode" method="post" id="editNode">
+    <input type="hidden" id="nodeId" name="nodeId" value="{{#if (if_id nodeInformation.id)}}{{nodeInformation.id}}{{else}}newID{{/if}}">
+    <div class="form-group row">
+        <label for="title" class="col-md-2 col-form-label">Title: </label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="title" name="title" required minlength="3" value="{{nodeInformation.title}}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-md-2 col-form-label">Description: </label>
+        <div class="col-md-10">
+            <textarea class="form-control" id="description" rows="3" name="description" required minlength="5">{{nodeInformation.description}}</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="importance" class="col-md-2 col-form-label">Importance: </label>
+        <div class="col-md-10">
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="importance1">{{{stars.one}}}</label>
+                <input class="form-check-input" type="radio" name="importance" id="importance1" value="1" required {{#if (if_equal nodeInformation.importance 1) }}checked{{/if}}>
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="importance2">{{{stars.two}}}</label>
+                <input class="form-check-input" type="radio" name="importance" id="importance2" value="2" {{#if (if_equal nodeInformation.importance 2) }}checked{{/if}}>
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="importance3">{{{stars.three}}}</label>
+                <input class="form-check-input" type="radio" name="importance" id="importance3" value="3" {{#if (if_equal nodeInformation.importance 3) }}checked{{/if}}>
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="importance4">{{{stars.four}}}</label>
+                <input class="form-check-input" type="radio" name="importance" id="importance4" value="4" {{#if (if_equal nodeInformation.importance 4) }}checked{{/if}}>
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="importance5">{{{stars.five}}}</label>
+                <input class="form-check-input" type="radio" name="importance" id="importance5" value="5" {{#if (if_equal nodeInformation.importance 5) }}checked{{/if}}>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#unless createANewNode}}<button id="btn_overrideNode" name="btn" value="btn_overrideNode" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-9">Override</button>{{/unless}}
+        <button id="btn_saveNew" name="btn" value="btn_saveNew" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col {{#unless createANewNode}}col-md-3{{else}}col-md-12{{/unless}}">Save {{#unless createANewNode}}as New{{/unless}}</button>
+{{#unless createANewNode}}<button id="btn_deleteNode" name="btn" value="btn_deleteNode" type="submit" class="btn btn-{{visualWeb.buttonDesign}} offset-md-9 col-md-3" formnovalidate>delete this node</button>{{/unless}}
+        <button id="btn_saveCancel" name="btn" value="btn_saveCancel" type="submit" class="btn btn-{{visualWeb.buttonDesign}} offset-md-9 col-md-3" formnovalidate>cancel</button>
+    </div>
+</form>
+
+
+
+
+
+
+

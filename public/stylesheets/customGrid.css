@@ -1,0 +1,11 @@
+.customGrid{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 5px;
+    grid-auto-flow: row;
+}
+.oneGrid{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 5px;
+}

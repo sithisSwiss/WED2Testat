@@ -1,0 +1,63 @@
+<div id="topUserControl" class="oneGrid">
+    <form action="/editNode" method="post" id="createNewNode" class="customGrid">
+        <button id="btn_createNewNode" name="btn" value="btn_createNewNode" type="submit" class="bigButton {{visualWeb.buttonDesign}}"  >create new node</button>
+    </form>
+    <!--<form action="/" method="post" id="userMainControl" class="customGrid">-->
+    <form action="/" method="post" id="userMainControl" class="customGrid">
+        <button id="btn_sortCreatedTime" name="btn" value="btn_sortCreatedTime" type="submit" class="bigButton {{#if btnObj.sortCreatedTime}}activeButton{{/if}}">
+            {{#if btnObj.sortCreatedTime}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+            created date
+            {{#if btnObj.sortCreatedTime}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+        </button>
+        <button id="btn_sortFinishedTime" name="btn" value="btn_sortFinishedTime" type="submit" class="bigButton  {{#if btnObj.sortFinishedTime}}activeButton{{/if}}">
+            {{#if btnObj.sortFinishedTime}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+            finished date
+            {{#if btnObj.sortFinishedTime}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+        </button>
+        <button id="btn_sortImportance" name="btn" value="btn_sortImportance" type="submit" class="bigButton  {{#if btnObj.sortImportance}}activeButton{{/if}}">
+            {{#if btnObj.sortImportance}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+            importance
+            {{#if btnObj.sortImportance}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+        </button>
+        <button id="btn_sortTitle" name="btn" value="btn_sortTitle" type="submit" class="bigButton {{#if btnObj.sortTitle}}activeButton{{/if}}">
+            {{#if btnObj.sortTitle}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+            title
+            {{#if btnObj.sortTitle}}<span class="ASCArrow">{{{ascArrow}}}</span>{{/if}}
+        </button>
+        <button id="btn_changeStyle" name="btn" value="btn_changeStyle" type="submit" class="smallButton">change Style</button>
+        <button id="btn_showFinished" name="btn" value="btn_showFinished" type="submit" class="smallButton {{#if btnObj.showFinished}}activeButton{{/if}}">show finished</button>
+        {{#if visualWeb.testing}}
+            <button id="btn_refresh" name="btn" value="btn_refresh" type="submit" class="smallButton">refresh</button>
+            <button id="btn_addDummy" name="btn" value="btn_addDummy" type="submit" class="smallButton">add a dummy</button>
+            <button id="btn_removeAll" name="btn" value="btn_removeAll" type="submit" class="smallButton">remove all</button>
+        {{/if}}
+    </form>
+</div>
+<div id="nodeOutput" class="oneGrid">
+    {{#unless nodes}}
+        <img class="picCenter" src="img/emptyNodeList.jpg" alt="empty Node List"/>
+
+    {{/unless}}
+    {{#each nodes}}
+        <div class="card oneGrid">
+            <div class="cardHeader customGrid">
+                <span class="finishedTitle">{{#if isFinished}}(finished){{/if}}</span>
+                <span class="starsOnHome">{{{importance}}}</span>
+                <span class="titlesOnHome">{{title}}</span>
+            </div>
+            <form id="homeEdit" action="/editNode" method="post" class="cardBody customGrid bockShadow">
+                <input type="hidden" id="nodeId" name="nodeId" value="{{id}}">
+                <button id="btn_changeFinished{{@index}}" name="btn" value="btn_changeFinished" type="submit" class="btn_changeFinished smallButton">
+                    <!--<span class="glyphicon {{#if isFinished}}glyphicon-remove-circle{{else}}glyphicon-ok-circle{{/if}}" aria-hidden="true"></span>-->
+                    finished
+                </button>
+                <div class="nodeText oneGrid">
+                    <span style="white-space: pre-line">{{description}}</span>
+                    <span class="createdTimeStamp">created: {{createdTime}}</span>
+                    <span class="finishedTimeStamp">finished: {{finishedTime}}</span>
+                </div>
+                <button id="btn_edit{{@index}}" name="btn" value="btn_editNode" type="submit" class="btn_editNode smallButton" >edit</button>
+            </form>
+        </div>
+    {{/each}}
+</div>

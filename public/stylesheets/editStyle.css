@@ -1,0 +1,47 @@
+#editNode > label {
+    grid-column: 1/3;
+}
+#editNode > div {
+    grid-column: 3/13;
+}
+
+
+#description, #title{
+    width: 100%;
+}
+
+.customGrid.checkGrid{
+    grid-template-columns: repeat(5, minmax(0, 1fr));;
+}
+.customGrid.checkGrid input{
+    display: none;
+}
+.customGrid.checkGrid > div{
+    font-size: 1.2em;
+}
+.customGrid.checkGrid input:checked + label{
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+#editNodeButtons{
+    grid-column: 1/ 13;
+}
+#btn_overrideNode{
+    grid-column: 1/9;
+}
+.ifNewNode{
+    grid-column: 1/13;
+}
+.ifOldNode{
+    grid-column: 9/13;
+}
+#btn_deleteNode{
+    grid-column: 9/13;
+}
+.createANewNode{
+    grid-column: 9/13;
+}
+#btn_saveCancel{
+    grid-column: 9/13;
+}
+

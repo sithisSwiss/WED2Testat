@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>{{visualWeb.title}}</title>
+
+        <meta name="viewport" content="width=device-with, initial-scale=1">
+
+        <link rel="icon" href="/img/favicon.ico">
+
+        <link rel='stylesheet' href='/stylesheets/customStyle.css' />
+        <link rel='stylesheet' href='/stylesheets/homeStyle.css' />
+        <link rel='stylesheet' href='/stylesheets/customGrid.css' />
+        <link rel='stylesheet' href='/stylesheets/editStyle.css' />
+        <link rel='stylesheet' href='/stylesheets/deleteStyle.css' />
+        <link rel='stylesheet' href='/stylesheets/respo_customStyle.css' />
+        <link rel='stylesheet' href='/stylesheets/respo_home.css' />
+        <link rel='stylesheet' href='/stylesheets/respo_edit.css' />
+        {{#if (if_equal visualWeb.frontendStyle "colorfulStyle") }}<link rel='stylesheet' href='/stylesheets/colorfulStyle.css' />{{/if}}
+    </head>
+    <body>
+
+    <div class="">
+        <h1> {{visualWeb.title}} </h1>
+        {{{body}}}
+    </div>
+    <footer><span class="madeBy">Made by Spring Roman alias Sithis </span></footer>
+    </body>
+</html>

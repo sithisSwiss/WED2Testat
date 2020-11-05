@@ -1,0 +1,87 @@
+
+
+/***top user control***/
+
+.bigButton{
+    grid-column: span 2;
+}
+
+#btn_changeStyle{
+    grid-column: 11;
+}
+#btn_refresh{
+    grid-column: 10;
+}
+.ASCArrow{
+    font-weight: bold;
+    font-size: larger;
+}
+
+
+/***node output***/
+#nodeOutput{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+
+}
+.card{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 8px;
+}
+.picCenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.cardHeader{
+    font-weight: bold;
+}
+.starsOnHome{
+    color:black;
+    border-color: black ;
+    border-width: 2px;
+    border-left-style: solid;
+    border-right-style: solid;
+    padding-right: 5px;
+    padding-left: 5px;
+    grid-column: span 2;
+}
+.finishedTitle{
+    color: #565656;
+    display: inline-block;
+    font-weight: bold;
+    padding-right: 5px;
+    width: 100px;
+    grid-column: span 2;
+}
+.titlesOnHome{
+    padding-left: 5px;
+    grid-column: 5/13;
+}
+#homeEdit{
+    border-radius: 8px;
+}
+.nodeText{
+    grid-column: 3/span 8;
+}
+.nodeText > span:first-child{
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 5px;
+}
+.nodeText > span:last-child{
+    padding-bottom: 5px;
+}
+.nodeText > span:not(:first-child){
+    color:gray;
+}
+.btn_editNode{
+    grid-column: 12/13;
+}
+

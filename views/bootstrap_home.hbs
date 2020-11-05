@@ -1,0 +1,57 @@
+<div id="topUserControl">
+    <form action="/editNode" method="post" id="createNewNode">
+        <div class="row">
+            <button id="btn_createNewNode" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-4" name="btn" value="btn_createNewNode">create new node</button>
+        </div>
+    </form>
+    <form action="/" method="post" id="userMainControl">
+        <div class="row">
+            <button id="btn_sortCreatedDate" name="btn" value="btn_sortCreatedDate" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-2 {{#if btnObj.sortCreatedDate}}active{{/if}}">sort by created date</button>
+            <button id="btn_sortFinishedDate" name="btn" value="btn_sortFinishedDate" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-2 {{#if btnObj.sortFinishedDate}}active{{/if}}">sort by finished date</button>
+            <button id="btn_sortImportance" name="btn" value="btn_sortImportance" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-2 {{#if btnObj.sortImportance}}active{{/if}}">sort by importance</button>
+            <button id="btn_sortTitle" name="btn" value="btn_sortTitle" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-2 {{#if btnObj.sortTitle}}active{{/if}}">sort by title</button>
+            <button id="btn_changeStyle" type="submit" class="btn btn-{{visualWeb.buttonDesign}} offset-md-1 col-md-1" name="btn" value="btn_changeStyle">change Style</button>
+            <button id="btn_showFinished" name="btn" value="btn_showFinished" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-1 d-none d-md-block">show finished</button>
+            <button id="btn_refresh" name="btn" value="btn_refresh" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-1 d-none d-md-block">refresh</button>
+        </div>
+        {{#if visualWeb.testing}}
+            <div class="row">
+                <button id="btn_addDummy" name="btn" value="btn_addDummy" type="submit" class="btn btn-{{visualWeb.buttonDesign}} offset-md-10 col-md-1 d-none d-md-block">add a dummy</button>
+                <button id="btn_removeAll" name="btn" value="btn_removeAll" type="submit" class="btn btn-{{visualWeb.buttonDesign}} col-md-1 d-none d-md-block">remove all nodes</button>
+            </div>
+        {{/if}}
+    </form>
+</div>
+<div class="nodeOutput">
+    <div class="accordion" id="nodePrinting">
+        {{#unless nodes}}
+            <img class="center" src="img/emptyNodeList.jpg" alt="empty Node List"/>
+        {{/unless}}
+        {{#each nodes}}
+            <div class="card">
+                <button id="heading{{@index}}" class="btn btn-{{../visualWeb.buttonDesign}} btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse{{@index}}"
+                        aria-expanded="{{#unless @index}}true{{else}}false{{/unless}}" aria-controls="collapse{{@index}}">
+                    <span class="finishedTitle">{{#if isFinished}}(finished){{/if}}</span>
+                    <span class="starsOnHome">{{{importance}}}</span>
+                    <span class="titlesOnHome">{{title}}</span>
+                </button>
+
+                <div id="collapse{{@index}}" class="collapse{{#unless @index}} show{{/unless}} " aria-labelledby="heading{{@index}}" data-parent="#nodePrinting">
+                    <div class="card-body row">
+                        <form action="/editNode" method="post" id="editNode">
+                            <input type="hidden" id="nodeId" name="nodeId" value="{{id}}">
+                            <div class="row">
+                                <button id="btn_changeFinished{{@index}}" type="submit" class="col-md-1 col-sm-12 btn btn-{{../visualWeb.buttonDesign}}" name="btn" value="btn_changeFinished">
+                                    <!--<span class="glyphicon {{#if isFinished}}glyphicon-remove-circle{{else}}glyphicon-ok-circle{{/if}}" aria-hidden="true"></span>-->
+                                     finished
+                                </button>
+                                <div class="nodeText col-md-10 col-sm-2">{{description}}</div>
+                                <button id="btn_edit{{@index}}" type="submit" class="col-md-1 col-sm-10 btn btn-{{../visualWeb.buttonDesign}}" name="btn" value="btn_editNode">edit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
